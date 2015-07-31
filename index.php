@@ -4,10 +4,10 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 date_default_timezone_set('US/Pacific');
 
-/*$servername = "localhost";
-$username = "####";
-$password = "####";
-$db = "####";
+$servername = "###";
+$username = "###";
+$password = "###";
+$db = "###";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $db);
@@ -19,10 +19,18 @@ if ($conn->connect_error) {
 
 //mysqli_select_db($conn, $db) or die("Unable to select database");
 
-$query = "show tables";
-$results = mysqli_query($conn, $query) or die(mysql_error());;
+$query = "select * FROM table";
+$results = mysqli_query($conn, $query) or die(mysql_error());
+
+//echo mysqli_num_rows($results);
+$db_fetch = array();
+while ($row = mysqli_fetch_array($results, MYSQL_ASSOC)) {
+    //printf("ID: %s  Name: %s", $row["id"], $row["city"]);
+    array_push($db_fetch, $row["row"]);
+}
+
 //var_dump($results);
-*/
+
 
 //Include global variables - information that does not change regardless of current page
 	//include('includes/global_var.php');
@@ -50,6 +58,12 @@ $results = mysqli_query($conn, $query) or die(mysql_error());;
 ?>
 
 <div class="container">
+	<div class="row-fluid">
+		<?php
+			enumfoods($db_fetch);
+		?>
+	</div><!--row-fluid-->
+
 	<div class="row-fluid">
 		<?php
 			enumfoods($fave_foods);
