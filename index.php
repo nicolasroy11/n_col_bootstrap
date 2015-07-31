@@ -4,10 +4,10 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 date_default_timezone_set('US/Pacific');
 
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$db = "nickdontcare";
+/*$servername = "localhost";
+$username = "####";
+$password = "####";
+$db = "####";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $db);
@@ -22,6 +22,7 @@ if ($conn->connect_error) {
 $query = "show tables";
 $results = mysqli_query($conn, $query) or die(mysql_error());;
 //var_dump($results);
+*/
 
 //Include global variables - information that does not change regardless of current page
 	//include('includes/global_var.php');
@@ -29,13 +30,16 @@ $results = mysqli_query($conn, $query) or die(mysql_error());;
 //Page Specific Variables and Functions
 	define("TITLE", "PHP Test Page 1");
 	$fave_foods = array("sushi", "poutine", "crepes");
-	function enumfoods()
+	$letters = array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n");
+	$numbers = array("1", "2");
+	function enumfoods($array)
 		{
-			global $fave_foods;	//without this, $fave_foods is undeclared in the scope of the function
-								//the array can also be passed in as an argument.
-			foreach ($fave_foods as $fave_food)
+			foreach ($array as $a)
 			{
-				echo "I love $fave_food,<br>";
+				$cols = "<div class=\"col-fluid\">";
+				$cols .= "<p class=\"test\">" . $a . "</p>";
+				$cols .= "</div><!--col-fluid-->";
+				echo $cols;
 			}
 		}
 	
@@ -46,82 +50,22 @@ $results = mysqli_query($conn, $query) or die(mysql_error());;
 ?>
 
 <div class="container">
-<div class="row-fluid">
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
+	<div class="row-fluid">
+		<?php
+			enumfoods($fave_foods);
+		?>
 	</div><!--row-fluid-->
 
 	<div class="row-fluid">
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
+		<?php
+			enumfoods($letters);
+		?>
 	</div><!--row-fluid-->
 
 	<div class="row-fluid">
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
-		<div class="col-fluid">
-			<p class="test"></p>
-		</div><!--col-fluid-->
+		<?php
+			enumfoods($numbers);
+		?>
 	</div><!--row-fluid-->
 </div><!--container-->
 
