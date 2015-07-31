@@ -17,15 +17,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }else{echo "Connected successfully";}
 
-//mysqli_select_db($conn, $db) or die("Unable to select database");
-
 $query = "select * FROM table";
 $results = mysqli_query($conn, $query) or die(mysql_error());
 
 //echo mysqli_num_rows($results);
 $db_fetch = array();
 while ($row = mysqli_fetch_array($results, MYSQL_ASSOC)) {
-    //printf("ID: %s  Name: %s", $row["id"], $row["city"]);
     array_push($db_fetch, $row["row"]);
 }
 
@@ -37,10 +34,9 @@ while ($row = mysqli_fetch_array($results, MYSQL_ASSOC)) {
 	
 //Page Specific Variables and Functions
 	define("TITLE", "PHP Test Page 1");
-	$fave_foods = array("sushi", "poutine", "crepes");
 	$letters = array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n");
 	$numbers = array("1", "2");
-	function enumfoods($array)
+	function enum($array)
 		{
 			foreach ($array as $a)
 			{
@@ -60,25 +56,19 @@ while ($row = mysqli_fetch_array($results, MYSQL_ASSOC)) {
 <div class="container">
 	<div class="row-fluid">
 		<?php
-			enumfoods($db_fetch);
+			enum($db_fetch);
 		?>
 	</div><!--row-fluid-->
 
 	<div class="row-fluid">
 		<?php
-			enumfoods($fave_foods);
+			enum($letters);
 		?>
 	</div><!--row-fluid-->
 
 	<div class="row-fluid">
 		<?php
-			enumfoods($letters);
-		?>
-	</div><!--row-fluid-->
-
-	<div class="row-fluid">
-		<?php
-			enumfoods($numbers);
+			enum($numbers);
 		?>
 	</div><!--row-fluid-->
 </div><!--container-->
