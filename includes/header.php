@@ -5,7 +5,7 @@
 	<script>
 		function jsTest()
 			{
-    			$(".col-fluid").css("background-color","green");
+    			$(".test").css("background-color","green");
 			}
 
 		$( document ).ready(function() {
@@ -14,10 +14,11 @@
 				    var count = $(this).children(".col-fluid").length;
 				    //alert(count);
 				    var width = $(".container").width()/count;
-				    $(this).children(".col-fluid").css('width', width);
-				    //alert($(this).children(".col-fluid").width());
-				    $(this).children(".col-fluid").css('height', width);
-				    //alert($(this).children(".col-fluid").height());
+				    var col = $(this).children(".col-fluid");
+				    col.css('width', width);
+				    alert(col.width());
+				    col.css('height', width);
+				    alert(col.height());
 				}
 		    );
 		});
