@@ -11,14 +11,11 @@
 		$( document ).ready(function() {
 		    $(".row-fluid").each(function()
 		    	{
-				    var count = $(this).children(".col-fluid").length;
-				    //alert(count);
+		    		var col = $(this).children(".col-fluid");
+				    var count = col.length;
 				    var width = $(".container").width()/count;
-				    var col = $(this).children(".col-fluid");
 				    col.css('width', width);
-				    alert(col.width());
-				    col.css('height', width);
-				    alert(col.height());
+				    col.children().css('height', width);
 				}
 		    );
 		});

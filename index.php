@@ -46,9 +46,57 @@ $results = mysqli_query($conn, $query) or die(mysql_error());;
 ?>
 
 <div class="container">
+<div class="row-fluid">
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+		<div class="col-fluid">
+			<p class="test"></p>
+		</div><!--col-fluid-->
+	</div><!--row-fluid-->
+
 	<div class="row-fluid">
 		<div class="col-fluid">
-			<p class="test">dcvwec</p>
+			<p class="test"></p>
 		</div><!--col-fluid-->
 		<div class="col-fluid">
 			<p class="test"></p>
@@ -77,7 +125,9 @@ $results = mysqli_query($conn, $query) or die(mysql_error());;
 	</div><!--row-fluid-->
 </div><!--container-->
 
-<input type="button" onclick="jsTest()">
+<div class="container">
+	<input type="button" onclick="jsTest()">
+<div>
 
 <?php
 //Include footer (important - contains closing </body> tag)
